@@ -308,9 +308,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\BoolByte.cs" />
+    <Compile Include="Core\CustomExtensions.cs" />
+    <Compile Include="Core\Duple.cs" />
+    <Compile Include="Core\LoopingList.cs" />
+    <Compile Include="Core\PriorityQueue.cs" />
     <Compile Include="Unity\AutoRotator2D.cs" />
     <Compile Include="Unity\CustomUnityExtensions.cs" />
-    <Compile Include="Core\CustomUtilities.cs" />
     <Compile Include="Unity\MiscUnityUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
