@@ -40,7 +40,7 @@ namespace CustomMSLibrary {
 			}
 
 			private (T item, float weight) SearchLesser() {
-				float testValue = 0;
+				float testValue = float.PositiveInfinity;
 				int testIndex = -1;
 				int queueCount = queue.Count;
 				for (int i = 0; i < queueCount; i++)
@@ -60,7 +60,7 @@ namespace CustomMSLibrary {
 			}
 
 			private (T item, float weight) SearchGreater() {
-				float testValue = 0;
+				float testValue = float.NegativeInfinity;
 				int testIndex = -1;
 				int queueCount = queue.Count;
 				for (int i = 0; i < queueCount; i++)
@@ -79,6 +79,18 @@ namespace CustomMSLibrary {
 
 			}
 
+			public void Clear() =>
+				queue.Clear();
+
+			public bool Contains(T item) {
+				int c = queue.Count;
+				for (int i = 0; i < c; i++)
+				{
+					if (queue[i].item.Equals(item))
+						return true;
+				}
+				return false;
+			}
 		}
 
 	}
