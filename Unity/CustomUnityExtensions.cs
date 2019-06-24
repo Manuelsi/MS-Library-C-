@@ -97,5 +97,12 @@ namespace CustomMSLibrary.Unity {
 			return vector;
 		}
 
+		public static Rect ScaleCentered(this Rect rect, float scalar) {
+			Vector2 center = rect.center;
+			rect.size = new Vector2(rect.width * scalar, rect.height * scalar);
+			rect.center = center;
+			return rect;
+		}
+
 	}
 }
