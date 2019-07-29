@@ -19,9 +19,6 @@ namespace CustomMSLibrary.Unity {
 			return children;
 		}
 
-		public static LayerMask ToLayerMask(this int layer) {
-			return (1 << layer);
-		}
 
 		/// <summary>
 		/// Returns a vector from the element calling the method to the parameter target.

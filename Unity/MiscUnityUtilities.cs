@@ -212,5 +212,13 @@ namespace CustomMSLibrary.Unity {
 		/// </summary>
 		public static float DotValueForNormalizedAngles(float degrees) => Mathf.Cos(degrees);
 
+		/// <summary>
+		/// Given an int value, returns a layer mask for that layer alone.
+		/// </summary>
+		/// <param name="layer">Layer to create a layer mask from (0-31)</param>
+		/// <returns></returns>
+		public static LayerMask IntToLayerMask(int layer) {
+			return (1 << layer);
+		}
 	}
 }
