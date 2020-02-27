@@ -104,7 +104,7 @@ namespace CustomMSLibrary.Unity {
 			{
 				foreach(var item in cols)
 				{
-					Vector3 relativePos = item.transform.position - transform.position;
+					Vector3 relativePos = item.transform.position - refPos;
 					if(Vector3.Angle((transform.rotation * frontDirection), relativePos) < detectionFOV * 0.5f)
 					{
 						RaycastHit hit;
