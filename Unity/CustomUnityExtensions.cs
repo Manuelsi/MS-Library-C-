@@ -101,5 +101,9 @@ namespace CustomMSLibrary.Unity {
 			return rect;
 		}
 
+		public static object IntermediaryPrint(this object item, string message) {
+			Debug.Log(message);
+			return item;
+		}
 	}
 }
