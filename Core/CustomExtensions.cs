@@ -92,6 +92,13 @@ namespace CustomMSLibrary {
 				}
 				return array;
 			}
+
+			/// <summary>
+			/// Returns value squared.
+			/// </summary>
+			/// <returns></returns>
+			public static float Squared(this float num) => num * num;
+
 		}
 
 	}
