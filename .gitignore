@@ -349,3 +349,4 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 MS Library.sln
+Editor/MSLib.Editor.asmdef
