@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 //using UnityEngine;
 
-namespace CustomMSLibrary {
+namespace CustomMSLibrary.Collections {
 	/// <summary>
 	/// Priority Queue
 	/// </summary>
