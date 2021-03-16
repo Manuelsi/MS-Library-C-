@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 //using UnityEngine;
 
-namespace CustomMSLibrary.Core {
+namespace CustomMSLibrary {
 
 	/// <summary>
 	/// A list with it's own index with a Next method and a looping behaviour, preventing Out Of Index errors unless the count is 0.

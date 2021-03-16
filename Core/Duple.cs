@@ -1,8 +1,6 @@
 ﻿//using UnityEngine;
 
 namespace CustomMSLibrary {
-
-	namespace Core {
 		/// <summary>
 		/// Custom version of Tuples, in case an older version of .NET is used
 		/// </summary>
@@ -18,7 +16,5 @@ namespace CustomMSLibrary {
 			}
 
 		}
-
-	}
 
 }
