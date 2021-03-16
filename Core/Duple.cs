@@ -1,4 +1,4 @@
-﻿namespace CustomMSLibrary {
+﻿namespace NullrefLib {
 		/// <summary>
 		/// Custom version of Tuples, in case an older version of .NET is used
 		/// </summary>

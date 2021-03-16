@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // compile with: -doc:DocFileName.xml 
-namespace CustomMSLibrary.Unity {
+namespace NullrefLib.Unity {
 	public static class CustomUnityExtensions {
 		public static bool ContainsLayer(this LayerMask mask, int layer) {
 			return mask == (mask | (1 << layer));

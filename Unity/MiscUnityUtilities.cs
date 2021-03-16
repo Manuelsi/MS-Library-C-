@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // compile with: -doc:DocFileName.xml 
-namespace CustomMSLibrary.Unity {
+namespace NullrefLib.Unity {
 
 	public static class MiscUnityUtilities {
 		#region Detectors

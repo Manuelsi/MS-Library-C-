@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CustomMSLibrary {
+namespace NullrefLib {
 	/// <summary>
 	/// Structure containing 8 boolean values stored inside a byte.
 	/// Intended to optimize the use of boolean values in memory at the cost of processing.
@@ -8,7 +8,7 @@ namespace CustomMSLibrary {
 	public struct BoolByte {
 		private byte data;
 
-		public byte RawData { get => data; }
+		public byte RawData => data;
 
 		/// <summary>
 		/// Create new BoolByte package from boolean values.

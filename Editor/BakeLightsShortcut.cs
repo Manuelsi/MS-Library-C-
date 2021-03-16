@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace CustomMSLibrary.Unity.Editor {
+namespace NullrefLib.Unity.Editor {
 	public static class LightingUtilities {
 
 		public static bool CanBake => (!Lightmapping.isRunning) &&

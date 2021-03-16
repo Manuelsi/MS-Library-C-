@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CustomMSLibrary.Collections {
+namespace NullrefLib.Collections {
 
 	/// <summary>
 	/// A list with it's own index with a Next method and a looping behaviour, preventing Out Of Index errors unless the count is 0.

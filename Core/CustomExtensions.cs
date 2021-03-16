@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CustomMSLibrary {
+namespace NullrefLib {
 	/// <summary>
 	/// Miscelaneous extension methods
 	/// </summary>
