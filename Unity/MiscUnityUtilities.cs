@@ -255,5 +255,11 @@ namespace CustomMSLibrary.Unity {
 
 			return color;
 		}
+
+		public static void Swap(ref float v1, ref float v2) {
+			float temp = v1;
+			v1 = v2;
+			v2 = temp;
+		}
 	}
 }
