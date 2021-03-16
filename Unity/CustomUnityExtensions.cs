@@ -28,6 +28,13 @@ namespace CustomMSLibrary.Unity {
 			return (target.transform.position - origin.transform.position);
 		}
 
+		/// <summary>
+		/// Returns a vector from the element calling the method to the parameter target.
+		/// </summary>
+		public static Vector3 RelativePosTo(this Component origin, Vector3 target) {
+			return (target - origin.transform.position);
+		}
+
 		public static Vector2 RotateTowards2D(this Vector2 source, Vector2 target, float maxAngle = 180) {
 			float deltaAngle = Vector2.SignedAngle(source, target);
 			deltaAngle = Mathf.Abs(deltaAngle) > maxAngle ? maxAngle * Mathf.Sign(deltaAngle) : deltaAngle;
