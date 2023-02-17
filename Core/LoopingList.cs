@@ -53,11 +53,9 @@ namespace NullrefLib.Collections {
 		/// <summary>
 		/// Returns next value from the loop. This updates its internal index, then returns value.
 		/// </summary>
-		public T Next {
-			get {
-				Index += 1;
-				return list[Index];
-			}
+		public T Next() {
+			Index += 1;
+			return list[Index];
 		}
 
 		public void Add(T value) {
