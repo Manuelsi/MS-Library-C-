@@ -76,7 +76,7 @@ namespace NullrefLib.Unity {
 			if (!(length == 6 || length == 8))
 				throw new ArgumentException($"Color Hex code {hex} is not a valid hex code.");
 
-			Color32 color = new();
+			Color32 color = new Color32();
 			if (
 				byte.TryParse(hex.Substring(0, 2), NumberStyles.AllowHexSpecifier, NumberFormatInfo.InvariantInfo, out byte r) &&
 				byte.TryParse(hex.Substring(2, 2), NumberStyles.AllowHexSpecifier, NumberFormatInfo.InvariantInfo, out byte g) &&
