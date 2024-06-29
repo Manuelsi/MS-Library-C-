@@ -14,8 +14,8 @@ namespace NullrefLib.Unity {
 		private bool hasFinished;
 
 		#region Properties
-		public float RotationPercent { get { return rotationPercent; } }
-		public bool HasFinished { get { return hasFinished; } }
+		public float RotationPercent => rotationPercent;
+		public bool HasFinished => hasFinished;
 		#endregion Properties
 
 		///<summary>Initializing constructor</summary>
@@ -32,7 +32,9 @@ namespace NullrefLib.Unity {
 			v2 = b;
 			rotationPercent = 0;
 			float deltaAngle = Vector2.SignedAngle(Vector2.right, v1) - Vector2.SignedAngle(Vector2.right, v2);
-			if (deltaAngle == 0) rotationPercent = 0;
+			if (deltaAngle == 0)
+				rotationPercent = 0;
+
 			hasFinished = false;
 		}
 
@@ -43,15 +45,14 @@ namespace NullrefLib.Unity {
 					" Add a condition to check on property AutoRotator2D.HasFinished.");
 				return;
 			}
-			rotationPercent += ((turningSpeed != 0f) ? (deltaTime / turningSpeed) : 1);
+			rotationPercent += (turningSpeed != 0f) ? (deltaTime / turningSpeed) : 1;
 			transform.rotation = MiscUnityUtilities.Slerp2D(v1, v2, rotationPercent, true);
 			if (rotationPercent >= 1)
 				hasFinished = true;
 		}
 
-		public void Stop() {
+		public void Stop() =>
 			hasFinished = true;
-		}
 
 		//Decorator
 		public AutoRotator2D SetTransform(Transform transform) {
