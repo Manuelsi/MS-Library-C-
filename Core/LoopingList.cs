@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace NullrefLib.Collections {
@@ -8,14 +9,10 @@ namespace NullrefLib.Collections {
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	[Serializable]
-	public class LoopingList<T> {
+	public class LoopingList<T> : IEnumerable<T> {
 		private int index = 0;
 		private List<T> list;
-		public List<T> List {
-			get {
-				return list;
-			}
-		}
+		public List<T> List => list;
 
 		/// <summary>
 		/// Points to LAST USED value.
@@ -26,7 +23,7 @@ namespace NullrefLib.Collections {
 				return index;
 			}
 			set {
-				value = (value % list.Count);
+				value %= list.Count;
 				index = value;
 			}
 		}
@@ -34,21 +31,23 @@ namespace NullrefLib.Collections {
 		/// <summary>
 		/// Count of items in the list.
 		/// </summary>
-		public int Count {
-			get {
-				return List.Count;
-			}
+		public int Count => List.Count;
+
+		public T this[int i] {
+			get => list[i % list.Count];
+			set => list[i % list.Count] = value;
 		}
 
-		public LoopingList() {
-			list = new List<T>();
-		}
+		public LoopingList() => list = new List<T>();
 
-		public LoopingList(List<T> l) {
-			list = new List<T>(l);
-		}
+		public LoopingList(int size) => list = new List<T>(size);
 
-		public T Current => list[Index];
+		public LoopingList(List<T> l) => list = new List<T>(l);
+
+		public T Current {
+			get => list[Index];
+			set => list[Index] = value;
+		}
 
 		/// <summary>
 		/// Returns next value from the loop. This updates its internal index, then returns value.
@@ -58,13 +57,9 @@ namespace NullrefLib.Collections {
 			return list[Index];
 		}
 
-		public void Add(T value) {
-			list.Add(value);
-		}
+		public void Add(T value) => list.Add(value);
 
-		public void Remove(T value) {
-			list.Remove(value);
-		}
+		public void Remove(T value) => list.Remove(value);
 
 		/// <summary>
 		/// CAREFUL: Removing at a defined index still uses the looping behaviour.
@@ -72,9 +67,9 @@ namespace NullrefLib.Collections {
 		/// </summary>
 		/// <param name="index"></param>
 		public void RemoveAt(int index) {
-			index = (index % Count);
+			index = index % Count;
 			list.RemoveAt(index);
-			if(Index >= index && Index > 0)
+			if (Index >= index && Index > 0)
 				Index--;
 		}
 
@@ -85,18 +80,17 @@ namespace NullrefLib.Collections {
 		/// <param name="resetIndex"></param>
 		public void Replace(List<T> newList, bool resetIndex = true) {
 			list = new List<T>(newList);
-			if(resetIndex)
+			if (resetIndex)
 				index = 0;
 		}
 
-		public static explicit operator LoopingList<T>(List<T> l) {
-			return new LoopingList<T>(l);
-		}
+		public static explicit operator LoopingList<T>(List<T> l) => new LoopingList<T>(l);
 
-		public static implicit operator List<T>(LoopingList<T> l) {
-			return l.List;
-		}
+		public static implicit operator List<T>(LoopingList<T> l) => l.List;
+
+		public IEnumerator<T> GetEnumerator() => list.GetEnumerator();
+
+		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 	}
 
 }
-
