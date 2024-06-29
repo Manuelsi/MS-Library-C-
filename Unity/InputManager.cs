@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public static class InputManager {
@@ -18,7 +19,7 @@ public static class InputManager {
 		float trigger = Input.GetAxisRaw(axis); //This also takes keyboard input
 		if (IsDown(axis))
 		{
-			UpdateDownState(axis,trigger);
+			UpdateDownState(axis, trigger);
 			return false;
 		}
 		if (trigger > deadZones[axis])
@@ -41,6 +42,7 @@ public static class InputManager {
 			UpdateUpState(axis, trigger);
 			return false;
 		}
+
 		if (trigger < deadZones[axis])
 		{
 			UpdateUpState(axis, trigger);
@@ -51,10 +53,10 @@ public static class InputManager {
 	public static void SetDeadzone(string axis, float value) =>
 		deadZones[axis] = value;
 
-	private static void UpdateDownState(string axis, float axisValue) => 
+	private static void UpdateDownState(string axis, float axisValue) =>
 		downStates[axis] = axisValue > deadZones[axis];
 
-	private static void UpdateUpState(string axis, float axisValue) => 
+	private static void UpdateUpState(string axis, float axisValue) =>
 		upStates[axis] = axisValue < deadZones[axis];
 
 	private static void TryInitialize(string axis) {
