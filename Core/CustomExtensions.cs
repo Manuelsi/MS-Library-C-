@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace NullrefLib {
 	/// <summary>
@@ -13,8 +14,9 @@ namespace NullrefLib {
 		/// <param name="index">Index from 0 to 7 of the desired bit within the byte.</param>
 		/// <returns></returns>
 		public static bool GetBit(this byte input, int index) {
-			if(index < 0 || index > 7)
+			if (index < 0 || index > 7)
 				throw new IndexOutOfRangeException();
+
 			return (input & (1 << index)) != 0;
 		}
 
@@ -26,12 +28,14 @@ namespace NullrefLib {
 		/// <param name="value">Boolean value to set bit as (0 or 1).</param>
 		/// <returns></returns>
 		public static byte SetBit(this byte thisByte, int index, bool value) {
-			if(index < 0 || index > 7)
+			if (index < 0 || index > 7)
 				throw new IndexOutOfRangeException();
-			if(value)
-				thisByte = (byte)(thisByte | 1 << index);
+
+			if (value)
+				thisByte = (byte)(thisByte | (1 << index));
 			else
 				thisByte = (byte)(thisByte & ~(1 << index));
+
 			return thisByte;
 		}
 
@@ -52,8 +56,9 @@ namespace NullrefLib {
 		/// <param name="index">Index from 0 to 31 of the desired bit within the int.</param>
 		/// <returns></returns>
 		public static bool GetBit(this int input, int index) {
-			if(index < 0 || index > 31)
+			if (index < 0 || index > 31)
 				throw new IndexOutOfRangeException();
+
 			return (input & (1 << index)) != 0;
 		}
 
@@ -65,12 +70,14 @@ namespace NullrefLib {
 		/// <param name="index">Index from 0 to 31 of the desired bit within the byte.</param>
 		/// <returns></returns>
 		public static int SetBit(this int input, int index, bool value) {
-			if(index < 0 || index > 31)
+			if (index < 0 || index > 31)
 				throw new IndexOutOfRangeException();
-			if(value)
+
+			if (value)
 				input = (byte)(input | 1 << index);
 			else
 				input = (byte)(input & ~(1 << index));
+
 			return input;
 		}
 
@@ -82,10 +89,10 @@ namespace NullrefLib {
 		/// <param name="count">Count of elements to copy from the array.</param>
 		/// <returns></returns>
 		public static T[] Slice<T>(this T[] source, int start, int count) {
-			var array = new T[count];
+			T[] array = new T[count];
 			float limit = count + start;
 			int c = 0;
-			for(int i = start; i < limit; i++)
+			for (int i = start; i < limit; i++)
 			{
 				array[c] = source[i];
 				c++;
@@ -101,6 +108,14 @@ namespace NullrefLib {
 
 		public static bool XNOR(this bool a, bool b) => !(a ^ b);
 
+		public static void CopyCollectionTo<T>(this ICollection<T> from, ICollection<T> to) {
+			foreach (T item in from)
+			{
+				to.Add(item);
+			}
+		}
+
+		public static byte ToByte(this bool value) => value ? (byte)1 : (byte)0;
 	}
 
 }
