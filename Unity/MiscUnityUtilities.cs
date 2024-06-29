@@ -22,7 +22,7 @@ namespace NullrefLib.Unity {
 			}
 
 			Quaternion qa = Quaternion.AngleAxis(fa, Vector3.forward);
-			Quaternion qb = Quaternion.AngleAxis(fb, Vector3.kforward);
+			Quaternion qb = Quaternion.AngleAxis(fb, Vector3.forward);
 
 			return Quaternion.Slerp(qa, qb, t);
 		}
